@@ -59,7 +59,8 @@ finish() {
 # build container
 (
     cd ..
-    make build-container-e2e
+    eval $(minikube docker-env)
+    DOCKER_BUILDKIT=1 DOCKER_IMAGE_TAG=e2e-test  make build-container-e2e
     cd -
 )
 

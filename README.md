@@ -17,7 +17,7 @@ This is a detailed list of steps the script is executing:
 - The server's certificate is fetched from the CSR and then encoded.
 - A secret of type tls is created with the server certificate and key.
 - The k8s extension api server's CA bundle is fetched.
-- The mutating webhook configuration for the webhook server is patched with the k8s api server's CA bundle from the previous step. This CA bundle will be used by the k8s extension api server when calling our webhook.
+- The mutating webhook configuration for the webhook server is patched with the generated certificate from the previous step. This certificate will be used by the k8s extension api server when calling our webhook.
 
 If you wish to learn more about TLS certificates management inside Kubernetes, check out the official documentation for [Managing TLS Certificate in a Cluster](https://kubernetes.io/docs/tasks/tls/managing-tls-in-a-cluster/#create-a-certificate-signing-request-object-to-send-to-the-kubernetes-api).
 
