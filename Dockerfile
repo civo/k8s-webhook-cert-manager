@@ -7,8 +7,8 @@ ARG KUBECTL_VERSION="v1.19.11"
 ARG TARGETOS
 ARG TARGETARCH
 
-RUN apk --upgrade --no-cache add openssl && \
-    wget "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/${TARGETOS}/${TARGETARCH}/kubectl" && \
+RUN apk upgrade --update-cache --available  && apk add openssl  && \
+    wget "http://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"  && \
     chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
 
 WORKDIR /app
